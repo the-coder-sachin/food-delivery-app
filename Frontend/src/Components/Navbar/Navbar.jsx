@@ -3,29 +3,29 @@ import { IoSearch } from "react-icons/io5";
 import { IoBag } from "react-icons/io5";
 import { logo } from '../../assets/assets';
 import Button from '../Button/Button';
-
+import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     const [menu, setMenu] = useState('');
   return (
     <div className="">
       <nav className="flex justify-between items-center">
         <div className="logo flex flex-col items-center">
-          <img className="size-24 animate-bounce mt-[32px] cursor-pointer bg-red-500 rounded-full" src={logo} alt="logo" />
-          <div className="stand w-[100px] h-1 bg-gray-400 rounded-full"></div>
+          <img className="size-12 sm:size-20 md:size-24 animate-bounce mt-[32px] cursor-pointer bg-red-500 rounded-full" src={logo} alt="logo" />
+          <div className="stand w-[65px] sm:w-[100px] md:w-[120px] h-1 bg-gray-400 rounded-full"></div>
         </div>
-        <ul className="flex gap-5 font-bold">
+        <ul className="hidden md:flex gap-5 font-bold">
           <li>
-            <a
+            <NavLink
               onClick={() => setMenu("home")}
               className={
                 menu === "home"
                   ? "pb-1 border-b-2 text-purple-400 border-purple-600"
                   : "hover:text-gray-300"
               }
-              href="#"
+              to="/"
             >
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
             <a
@@ -72,7 +72,9 @@ const Navbar = () => {
             <IoSearch />
           </div>
           <div className="bag text-2xl active:animate-click hover:text-stone-300 cursor-pointer">
+            <NavLink to="/cart">
             <IoBag />
+            </NavLink>
           </div>
           <Button>Sign In</Button>
         </div>

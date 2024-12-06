@@ -13,21 +13,21 @@ const Footer = () => {
     <>
       <div className="logo-banner flex justify-center">
         <img src={logo}
-        className='size-96'
+        className='size-80 sm:size-96'
         alt="logo" />
       </div>
       <footer className="bg-slate-900 p-4">
         <div className="footer-content flex">
-          <div className="left w-full">
+          <div className="left w-full hidden sm:block">
             <div className="logo flex flex-col justify-center items-center">
               <div className="logo-img">
                 <img
-                  className="size-24 animate-bounce mt-[32px] cursor-pointer bg-red-500 rounded-full"
+                  className="size-20 sm:size-24 animate-bounce mt-[32px] cursor-pointer bg-red-500 rounded-full"
                   src={logo}
                   alt="logo"
                 />
               </div>
-              <div className="logo-title font-bold text-2xl">
+              <div className="logo-title hidden md:block font-bold text-2xl">
                 Chef's Place Good Food
               </div>
             </div>
@@ -37,33 +37,33 @@ const Footer = () => {
               About Us
             </h3>
             <ul>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-sm">
+              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Who We Are
               </li>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-sm">
+              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Work With Us
               </li>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-sm">
+              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Blog
               </li>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-sm">
+              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Contact Us
               </li>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-sm">
+              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Report Fraud
               </li>
             </ul>
           </div>
           <div className="right w-full flex justify-center flex-col items-center">
-            <p className="text-xl mb-3 hover:animate-click cursor-pointer">
+            <p className="text-xl text-nowrap mb-3 hover:animate-click cursor-pointer">
               Social Links
             </p>
-            <div className="icons flex gap-3">
-              <FaFacebook className="cursor-pointer" />
-              <FaInstagram className="cursor-pointer" />
-              <FaYoutube className="cursor-pointer" />
-              <FaLinkedin className="cursor-pointer" />
-              <FaTwitter className="cursor-pointer" />
+            <div className="icons flex gap-1 sm:gap-3">
+              <FaFacebook  className="cursor-pointer text-sm sm:text-xl" />
+              <FaInstagram className="cursor-pointer text-sm sm:text-xl" />
+              <FaYoutube   className="cursor-pointer text-sm sm:text-xl" />
+              <FaLinkedin  className="cursor-pointer text-sm sm:text-xl" />
+              <FaTwitter   className="cursor-pointer text-sm sm:text-xl" />
             </div>
             <img
               src={appStore}
