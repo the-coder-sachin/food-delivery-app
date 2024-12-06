@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        "zero-offset": "0 0 15px rgba(0, 0, 0, 0.5)", // Adjust blur and spread as needed
+      },
       keyframes: {
         click: {
           "0%": { transform: "scale(1)" },

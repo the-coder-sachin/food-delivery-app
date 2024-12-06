@@ -35,7 +35,7 @@ const Navbar = () => {
                   ? "pb-1 border-b-2 text-purple-400 border-purple-600"
                   : "hover:text-gray-300"
               }
-              href="#"
+              href="#menu"
             >
               Menu
             </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
                   ? "pb-1 border-b-2 text-purple-400 border-purple-600"
                   : "hover:text-gray-300"
               }
-              href="#"
+              href="#mobile"
             >
               Mobile-app
             </a>
@@ -61,7 +61,7 @@ const Navbar = () => {
                   ? "pb-1 border-b-2 text-purple-400 border-purple-600"
                   : "hover:text-gray-300"
               }
-              href="#"
+              href="#contact"
             >
               Contact Us
             </a>

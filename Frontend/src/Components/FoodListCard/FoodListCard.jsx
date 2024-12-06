@@ -7,7 +7,7 @@ const FoodListCard = ({img, name, price, desc, category, rating, id}) => {
 
   return (
     <>
-      <div className="card border lg:min-w-[256px] p-2 rounded-3xl bg-slate-950 flex justify-center items-center flex-col">
+      <div className="card hover:scale-105 ease-in-out duration-300 shadow-zero-offset shadow-slate-700 lg:min-w-[256px] p-2 rounded-3xl bg-slate-950 flex justify-center items-center flex-col">
         <div className="img">
           <img
             src={img}

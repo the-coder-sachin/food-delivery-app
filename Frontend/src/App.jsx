@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from './Components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
@@ -7,6 +7,9 @@ import Cart from './pages/cart/Cart';
 import Footer from './Components/Footer/Footer';
 
 function App() {
+
+ 
+  
 
 
   return (

@@ -6,12 +6,14 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { appStore, playStore } from '../../assets/img/img';
+import { NavLink } from 'react-router-dom';
+import { FaArrowAltCircleUp } from "react-icons/fa";
 
 
 const Footer = () => {
   return (
     <>
-      <div className="logo-banner flex justify-center">
+      <div className="logo-banner flex justify-center" id=''>
         <img src={logo}
         className='size-80 sm:size-96'
         alt="logo" />
@@ -46,7 +48,7 @@ const Footer = () => {
               <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Blog
               </li>
-              <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
+              <li id='contact' className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
                 Contact Us
               </li>
               <li className="cursor-pointer text-gray-400 hover:text-gray-300 text-xs sm:text-sm">
@@ -66,6 +68,7 @@ const Footer = () => {
               <FaTwitter   className="cursor-pointer text-sm sm:text-xl" />
             </div>
             <img
+              id='mobile'
               src={appStore}
               className="h-8 mt-2 cursor-pointer"
               alt="app-store"
@@ -78,12 +81,15 @@ const Footer = () => {
           </div>
         </div>
         <hr className="my-3" />
-        <div className="copyright text-xs text-gray-500">
+        <div className="copyright text-xs text-gray-500" >
           By continuing past this page, you agree to our Terms of Service,
           Cookie Policy, Privacy Policy and Content Policies. All trademarks are
           properties of their respective owners. 2008-2024 © Chef'sPlace™ Ltd. All
           rights reserved.
         </div>
+        <button className='fixed bottom-10 right-10 duration-300 hover:scale-110'>
+            <FaArrowAltCircleUp onClick={()=>{window.scrollTo({top:0, behavior:'smooth'})}} className='text-4xl bg-black rounded-full'/>
+            </button>
       </footer>
     </>
   );
