@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import { RxCross2 } from "react-icons/rx";
 import { logo } from '../../assets/assets';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { foodList, cartItem, setCartItem, addToCart, removeFromCart, removeAllFromCart, subTotalCart, } =
     useContext(StoreContext);
-
+  const navigate = useNavigate()
   const [deliveryCharges, setDeliveryCharges] = useState(0.00);
   const [GST, setGST] = useState(0);
   const [subTotal, setSubTotal] = useState(0)
@@ -88,7 +89,7 @@ const Cart = () => {
           })}
         </div>
         <div className="cart-value flex flex-col-reverse sm:flex-row">
-          <div className="left w-full p-4">
+          <div className="left w-full p-4 flex flex-col">
             <h2 className='mb-2 text-xl font-bold'>Your Cart</h2>
             <div className="flex justify-between text-gray-400 text-sm">
               <p>SubTotal :</p>
@@ -97,13 +98,11 @@ const Cart = () => {
             <hr className='my-2' />
             <div className="flex justify-between text-gray-400 text-sm">
               <p>Delivery Fee :</p>
-              {/* <p>₹{subTotalCart()>0?35:0}</p> */}
               <p>₹{deliveryCharges}</p>
             </div>
             <hr className='my-2' />
             <div className="flex justify-between text-gray-400 text-sm">
               <p>GST (5%):</p>
-              {/* <p>₹{subTotalCart()*0.05}</p> */}
               <p>₹{GST}</p>
             </div>
             <hr className='my-2' />
@@ -112,7 +111,7 @@ const Cart = () => {
               <b>₹{(subTotalCart() + deliveryCharges + subTotalCart()*0.05).toFixed(0)}</b>
             </div>
             <hr className='my-2' />
-            <button className='bg-orange-600 p-2 px-5 rounded-md'>proceed to pay</button>
+            <button onClick={()=>navigate('/order')} className='bg-orange-600 p-2 px-5 rounded-md'>Add Address & Place Your Order</button>
           </div>
           <div className="right w-full p-4 flex justify-center items-center flex-col">
             <p className='text-gray-200 text-nowrap mb-2 text-xs sm:text-[16px]'>Enter to prome code for extra discount</p>
