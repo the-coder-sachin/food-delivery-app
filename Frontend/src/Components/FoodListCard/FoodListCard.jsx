@@ -7,7 +7,7 @@ const FoodListCard = ({img, name, price, desc, category, rating, id}) => {
 
   return (
     <>
-      <div className="card hover:scale-105 ease-in-out duration-300 shadow-zero-offset shadow-slate-700 lg:min-w-[256px] p-2 rounded-3xl bg-slate-950 flex justify-center items-center flex-col">
+      <div className="card hover:scale-105 ease-in-out duration-300 shadow-zero-offset shadow-slate-700 lg:min-w-[256px] p-2 rounded-3xl bg-slate-950 flex justify-center items-center flex-col mt-4">
         <div className="img">
           <img
             src={img}
@@ -27,7 +27,7 @@ const FoodListCard = ({img, name, price, desc, category, rating, id}) => {
           {desc}
           <span className="category text-sm text-red-500">({category})</span>
         </p>
-        {!cartItem[name] ? (
+        {!cartItem[id] ? (
           <div className='flex w-48 items-center justify-center gap-2'>
             <div className="price text-purple-400 text-lg md:text-xl flex justify-center">
               <div>
@@ -36,7 +36,7 @@ const FoodListCard = ({img, name, price, desc, category, rating, id}) => {
               </div>
             </div>
             <button
-              onClick={() => addToCart(name)}
+              onClick={() => addToCart(id)}
               className="bg-orange-400 text-xs w-28 md:text-[16px] md:w-40 px-4 py-2 rounded-lg font-bold"
             >
               Add To Cart
@@ -46,14 +46,14 @@ const FoodListCard = ({img, name, price, desc, category, rating, id}) => {
           <div className="flex justify-evenly border w-40 p-2 rounded-lg border-orange-400">
             <button
               className="bg-red-100 text-red-600 size-6 rounded-full text-xl flex justify-center items-center"
-              onClick={() => removeFromCart(name)}
+              onClick={() => removeFromCart(id)}
             >
               -
             </button>
-            <p className="font-bold select-none">{cartItem[name]}</p>
+            <p className="font-bold select-none">{cartItem[id]}</p>
             <button
               className="bg-green-200 text-green-600 size-6 rounded-full text-xl flex justify-center items-center"
-              onClick={() => addToCart(name)}
+              onClick={() => addToCart(id)}
             >
               +
             </button>
