@@ -5,7 +5,13 @@ import { foodList } from "../assets/img/img";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) =>{
-    const [cartItem, setCartItem] = useState({})
+    const [cartItem, setCartItem] = useState({});
+    const [token, setToken] = useState('');
+    const url = `http://localhost:4000`;
+    useEffect(() => {
+      setToken(localStorage.getItem('token'))
+    }, [])
+    
     
 
     const addToCart = (itemId) =>{
@@ -45,6 +51,9 @@ const StoreContextProvider = (props) =>{
         removeFromCart,
         removeAllFromCart,
         subTotalCart,
+        url,
+        token,
+        setToken,
     }
     return(
         <StoreContext.Provider value={contextValue}>

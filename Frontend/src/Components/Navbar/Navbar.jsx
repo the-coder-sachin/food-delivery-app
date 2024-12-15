@@ -5,10 +5,20 @@ import { logo } from '../../assets/assets';
 import Button from '../Button/Button';
 import { NavLink } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
+import { CgProfile } from "react-icons/cg";
+import { IoBagHandle } from "react-icons/io5";
+import { RiLogoutCircleRLine } from "react-icons/ri";
+
 const Navbar = ({ setShowLoginPopup }) => {
   const [menu, setMenu] = useState("");
+  const [showDropDown, setShowDropDown] = useState(false);
 
-  const {subTotalCart} = useContext(StoreContext)
+  const {subTotalCart, token, setToken} = useContext(StoreContext);
+
+  const logout = () =>{
+    setToken('');
+    localStorage.removeItem('token')
+  }
 
   return (
     <div className="">
@@ -73,7 +83,7 @@ const Navbar = ({ setShowLoginPopup }) => {
               }
               href="#contact"
             >
-              Contact Us
+              Contact us
             </a>
           </li>
         </ul>
@@ -92,13 +102,39 @@ const Navbar = ({ setShowLoginPopup }) => {
               <IoBag />
             </NavLink>
           </div>
-          <div
-            onClick={() => {
-              setShowLoginPopup(true);
-            }}
-          >
-            <Button>Sign In</Button>
-          </div>
+          {token ? (
+            <div className='relative'>
+              <CgProfile
+                className="text-4xl cursor-pointer text-gray-400"
+                onClick={() => setShowDropDown(prev=>!prev)}
+              />
+              <ul
+                className={
+                  showDropDown?`border p-1 text-xs rounded-md rounded-tr-none absolute top-10 right-1`:`hidden`
+                }
+              >
+                <li className="flex gap-1 mb-1 items-center cursor-pointer text-orange-300">
+                  <IoBagHandle />
+                  <span className="">Orders</span>
+                </li>
+                <hr />
+                <li
+                onClick={logout} 
+                className="flex gap-1 mt-1 items-center cursor-pointer text-red-500">
+                  <RiLogoutCircleRLine />
+                  <span className="">Logout</span>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div
+              onClick={() => {
+                setShowLoginPopup(true);
+              }}
+            >
+              <Button>Sign In</Button>
+            </div>
+          )}
         </div>
       </nav>
     </div>
